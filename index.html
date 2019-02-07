@@ -49,16 +49,22 @@ function singleRound(x, y) {
   			winner = "Computer is winner with " + comp + "wins!";
   		} else if (player > comp && player >= noone) {
   			winner = "Player is winner with " + player + "wins!";
-  		} else if (noone >=5 ) {
-  			winner = "Noone is winner!"
   		} return winner;
   	}
-
   	function game(n) {
   		for(let i=0; i<n; i++){
-  			singleRound("rock", computerPlay());
-  		} return console.log(singleRound("rock", computerPlay()));
+  			singleRound(choise, computerPlay());
+  		} return console.log(singleRound(choise, computerPlay()));
   	}
+    let choise = prompt("Chose between paper, rock and scissors?!?");
+    choise = choise.toLocaleLowerCase();
+    while (choise != "rock" && choise != "scissors" && choise != "paper") {
+      alert("Wrong input! Chose between paper, rock and scissors!");
+      choise = prompt("Chose between paper, rock and scissors?!?");
+      choise = choise.toLocaleLowerCase();
+    }
+    let number = prompt("Chose number of games?");
+    console.log(game(number));
 
   </script>
 </body>
