@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script>
+  	function random(x) {
+  		return Math.floor(Math.random() * x);
+  	}
+  	function computerPlay() {
+  		x = random(3);
+  		if (x==0){
+  			str = "rock";
+  		} else if (x==1) {
+  			str = "paper";
+  		} else if (x==2) {
+  			str = "scissors";
+  		} return str;
+  	}
+
+let noone = player = comp = 0;
+function singleRound(x, y) {
+  		x = x.toLocaleLowerCase();
+  		y = y.toLocaleLowerCase();
+  		let winner = "x"
+  		if (x==y) {
+  			console.log("Naah, you chose the same, " + x + ".");
+  			noone+=1;
+  		} else if (x=="rock" && y=="scissors") {
+  			console.log("You win with " + x + "! Computer chose " + y + ".");
+  			player+=1;
+  		} else if (x=="rock" && y == "paper") {
+  			console.log("Computer win with " + y + ", you lose with " + x + ".");
+  			comp+=1;
+  		} else if (x=="paper" && y=="rock") {
+  			console.log("You win with " + x + "! Computer chose " + y + ".");
+  			player+=1;
+  		} else if(x=="paper" && y == "scissors") {
+  			console.log("Computer win with " + y + ", you lose with " + x + ".");
+  			comp+=1;
+  		} else if (x=="scissors" && y == "paper") {
+  			console.log("You win with " + x + "! Computer chose " + y + ".");
+  			player+=1;
+  		} else if (x=="scissors" && y == "rock") {
+  			console.log("Computer win with " + y + ", you lose with " + x + ".");
+  			comp+=1
+  		} if (comp > player && comp >= noone) {
+  			winner = "Computer is winner with " + comp + "wins!";
+  		} else if (player > comp && player >= noone) {
+  			winner = "Player is winner with " + player + "wins!";
+  		} return winner;
+  	}
+  	function game(n) {
+  		for(let i=0; i<n; i++){
+  			singleRound(choise, computerPlay());
+  		} return console.log(singleRound(choise, computerPlay()));
+  	}
+    let choise = prompt("Chose between paper, rock and scissors?!?");
+    choise = choise.toLocaleLowerCase();
+    while (choise != "rock" && choise != "scissors" && choise != "paper") {
+      alert("Wrong input! Chose between paper, rock and scissors!");
+      choise = prompt("Chose between paper, rock and scissors?!?");
+      choise = choise.toLocaleLowerCase();
+    }
+    let number = prompt("Chose number of games?");
+    console.log(game(number));
+
+  </script>
+</body>
+</html>
